@@ -7,7 +7,7 @@ from response import Response
 class Client(object):
     """retailCRM API client"""
 
-    apiVersion = '3'
+    apiVersion = '5'
 
     def __init__(self, crm_url, api_key):
         self.apiUrl = crm_url + '/api/v' + self.apiVersion + '/'
@@ -93,6 +93,23 @@ class Client(object):
             self.parameters['site'] = site
 
         url = self.apiUrl + 'orders/' + str(order['externalId']) + '/edit'
+
+        return self.make_request(url, 'POST')
+
+    def orders_payments_create(self, order, site=None):
+        """
+
+        :param order:
+        :param site:
+        :return:
+        """
+        data_json = json.dumps(order)
+        self.parameters['payment'] = data_json
+
+        if site is not None:
+            self.parameters['site'] = site
+
+        url = self.apiUrl + 'orders/payments/create'
 
         return self.make_request(url, 'POST')
 
