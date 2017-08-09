@@ -23,7 +23,7 @@ order = {
   'orderMethod': 'call-request',
 }
 
-result = crm.orders_create(order)
+result = client.orders_create(order)
 ```
 
 ### Documentation
