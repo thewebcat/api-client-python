@@ -4,7 +4,7 @@ retailCRM API python client
 ### Install
 
 ```
-pip install retailcrm
+pip install git+https://github.com/thewebcat/api-client-python.git
 ```
 
 ### Usage
@@ -28,4 +28,4 @@ result = crm.orders_create(order)
 
 ### Documentation
 
-* http://www.retailcrm.pro/docs/Developers/ApiVersion3
+* http://www.retailcrm.pro/docs/Developers/ApiVersion5
