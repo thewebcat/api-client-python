@@ -113,6 +113,23 @@ class Client(object):
 
         return self.make_request(url, 'POST')
 
+    def orders_payments_edit(self, order, site=None):
+        """
+
+        :param order:
+        :param site:
+        :return:
+        """
+        data_json = json.dumps(order)
+        self.parameters['payment'] = data_json
+
+        if site is not None:
+            self.parameters['site'] = site
+
+        url = self.apiUrl + 'orders/payments/' + str(order['id']) + '/edit'
+
+        return self.make_request(url, 'POST')
+
     def orders_upload(self, orders, site=None):
         """
 
@@ -657,3 +674,4 @@ class Client(object):
         url = self.apiUrl + 'telephony/manager'
 
         return self.make_request(url)
+
